@@ -1,0 +1,5 @@
+$servers = get-adcomputer -filter 'name -like "server*"' -server domaincontroller | Select -Expand DNSHostName
+foreach($i in $servers)
+{
+invoke-command -computername $servers {Write-Host "hello world"}
+}
